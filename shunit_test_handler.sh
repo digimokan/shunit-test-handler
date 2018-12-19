@@ -4,7 +4,7 @@ CMD_NAME="$(basename "${0}")"
 path_to_shlib_dir=''      # relative path to shlib
 path_to_unit_tests_dir='' # relative path to dir with shunit2 unit test files
 exit_code=0               # stored exit code of shlib's test_runner execution
-shells=''                 # optional list of shells to test with
+shells="${SHELL}"         # optional list of test shells (default is sys shell)
 unit_test_files=''        # optional list of unit test files to use
 unit_test_function=''     # optional single unit test function to run
 
@@ -83,7 +83,11 @@ handle_unit_test_files() {
 }
 
 handle_unit_test_function() {
-  unit_test_function="unit_test_function=${1}"
+  if [ "${unit_test_function}" = '' ]; then
+    unit_test_function="unit_test_function=${1}"
+  else
+    unit_test_function="${unit_test_function} unit_test_function=${1}"
+  fi
 }
 
 handle_unknown_option() {
@@ -135,7 +139,14 @@ change_to_unit_tests_dir() {
 }
 
 run_unit_tests() {
-  ./test_runner -s "${shells}" -t "${unit_test_files}" -e "${unit_test_function}"
+  unit_test_files_opt="$([ "${unit_test_files}" != '' ] && printf "%s" '-t')"
+  unit_test_files_arg="$([ "${unit_test_files}" != '' ] && printf "%s" "${unit_test_files}")"
+  unit_test_function_opt="$([ "${unit_test_function}" != '' ] && printf "%s" '-e')"
+  unit_test_function_arg="$([ "${unit_test_function}" != '' ] && printf "%s" "${unit_test_function}")"
+  ./test_runner \
+    -s "${shells}" \
+    "${unit_test_files_opt}" "${unit_test_files_arg}" \
+    "${unit_test_function_opt}" "${unit_test_function_arg}"
   exit_code="${?}"
 }
 
