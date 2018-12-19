@@ -34,7 +34,7 @@ print_usage() {
   echo '  -h, --help'
   echo '      print this help message'
   echo '  -s "<path> [<path> ...]", --test-shells="<path> [<path> ...]"'
-  echo '      only use specified list of shells for tests'
+  echo '      use specified list of shells for tests (default is sys shell)'
   echo '  -t "<file> [<file> ...]", --unit-test-files="<file> [<file> ...]"'
   echo '      only run specified list of unit test files'
   echo '  -x "<function_name>", --unit-test-function="<function_name>"'

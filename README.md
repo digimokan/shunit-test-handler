@@ -94,7 +94,7 @@ OPTIONS:
 &nbsp; &nbsp; &nbsp; &nbsp; print this help message
 
 `-s "<path> [<path> ...]", --test-shells="<path> [<path> ...]"`  
-&nbsp; &nbsp; &nbsp; &nbsp; only use specified list of shells for tests
+&nbsp; &nbsp; &nbsp; &nbsp; use specified list of shells for tests (default is sys shell)
 
 `-t "<file> [<file> ...]", --unit-test-files="<file> [<file> ...]"`  
 &nbsp; &nbsp; &nbsp; &nbsp; only run specified list of unit test files
