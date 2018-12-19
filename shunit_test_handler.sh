@@ -4,7 +4,7 @@ CMD_NAME="$(basename "${0}")"
 path_to_shlib_dir=''      # relative path to shlib
 path_to_unit_tests_dir='' # relative path to dir with shunit2 unit test files
 exit_code=0               # stored exit code of shlib's test_runner execution
-shells="${SHELL}"         # optional list of test shells (default is sys shell)
+shells='/bin/sh'          # optional list of test shells (default is sys shell)
 unit_test_files=''        # optional list of unit test files to use
 unit_test_function=''     # optional single unit test function to run
 
@@ -28,8 +28,8 @@ print_usage() {
   echo 'USAGE:'
   print_cmd_line '-h'
   print_cmd_line '[-s "<path> [<path> ...]"]  [-t "<file> [<file> ...]"]'
-  print_arg_line '[-x <function_name>]  <path_to_shlib_dir>'
-  print_arg_line '<path_to_unit_tests_dir>'
+  print_arg_line '[-x <function_name>]'
+  print_arg_line '<path_to_shlib_dir>  <path_to_unit_tests_dir>'
   echo 'OPTIONS:'
   echo '  -h, --help'
   echo '      print this help message'
