@@ -107,6 +107,8 @@ OPTIONS:
 * Pass through environment vars to _test_runner_.
 * Allow running multiple test functions within a unit test file.
 * Enable testing multiple unit-test directories, and recursing.
+* Redo -x option unit_test_function hack: find better alternative to passing env
+  var.
 
 ## Meta
 
