@@ -21,7 +21,7 @@ unit testing granularity.
 * Enables separation of _shlib_ and a directory containing unit tests.
 * Passes through options for specifying which shells to test with, and for
   narrowing which unit test files to run.
-* Just like _shunit2_, it runs in most shells.
+* Tested in _bash_, _mksh_, _dash_, _zsh_.
 
 ## Dependencies
 
@@ -106,6 +106,7 @@ OPTIONS:
 
 * Pass through environment vars to _test_runner_.
 * Allow running multiple test functions within a unit test file.
+* Enable testing multiple unit-test directories, and recursing.
 
 ## Meta
 
